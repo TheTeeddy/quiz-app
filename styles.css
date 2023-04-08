@@ -1,0 +1,38 @@
+body {
+    background-color: #252525;
+}
+.head {
+    text-align: center;
+    position: relative;
+    font-size: 1.5rem;
+    width: 100%;
+}
+.heading {
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px 5px;
+    color: wheat;
+}
+.start {
+    color: #ba0000;
+    width: 4%;
+    font-size: 1.6rem;
+    justify-items: center;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+}
+.startbtn {
+    height: auto;
+    background-color: #8fbc8f;
+    border-radius: 8%;
+    margin: 0;
+}
+.start:hover {
+    width: 5%;
+    top
+}
+.startbtn:hover {
+    cursor: pointer;
+    font-size: 2.5rem;
+}
