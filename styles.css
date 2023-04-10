@@ -30,9 +30,15 @@ body {
 }
 .start:hover {
     width: 5%;
-    top
 }
 .startbtn:hover {
     cursor: pointer;
     font-size: 2.5rem;
+}
+.question {
+    font-size: 3rem;
+    margin: auto;
+    color: wheat;
+    text-align: center;
+    margin-top: 150px;
 }
