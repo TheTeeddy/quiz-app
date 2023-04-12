@@ -108,5 +108,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     console.log(quizQuestion);
 
-    // Task: make automatic quiz, add click event on answers
+    // Task: make automatic quiz, add click event on answers!
 });
