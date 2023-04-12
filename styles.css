@@ -42,3 +42,28 @@ body {
     text-align: center;
     margin-top: 150px;
 }
+.question span {
+    color: red;
+}
+
+.answer {
+    display: inline-block;
+    width: 50%;
+    color: wheat;
+    text-align: center;
+    position: relative;
+}
+.answer h1 {
+    margin: 15px;
+    padding: 0;
+}
+h1 span {
+    cursor: pointer;
+    border: 2px solid wheat;
+    padding: 5px;
+    border-radius: 5px;
+}
+h1 span:hover {
+    background-color: wheat;
+    color: #252525;
+}
