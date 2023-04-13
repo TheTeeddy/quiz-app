@@ -1,51 +1,92 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
-    const start = document.querySelector(".startbtn");
-
-    start.addEventListener("click", () => {
-        deletePage();
-        quizStart(countries[0]);
-    });
-
-    function deletePage() {
-        document.body.innerHTML = "";
-    }
-    function quizStart(city) {
+    function changePage() {
+        let quizNumber = 0,
+            result = 0;
         const question = document.createElement("div"),
             divOfQuestions = document.createElement("div"),
             capital = document.createElement("div"),
             secondOption = document.createElement("div"),
             thirdOption = document.createElement("div"),
-            fourthOption = document.createElement("div");
+            fourthOption = document.createElement("div"),
+            next = document.createElement("div"),
+            nextDiv = document.createElement("div");
+        beginQuiz();
+        function beginQuiz() {
+            const start = document.querySelector(".startbtn");
+            start.addEventListener("click", () => {
+                deletePage();
+                quizStart(countries[quizNumber], quizNumber);
+            });
+        }
 
-        // divOfQuestions.classList.add("empty");
-        capital.classList.add("answer");
-        secondOption.classList.add("answer");
-        thirdOption.classList.add("answer");
-        fourthOption.classList.add("answer");
-        question.classList.add("question");
-        question.innerHTML = `
-        <h4> Which city is the capital of: <br> <span>${city}</span></h4>
+        function deletePage() {
+            document.body.innerHTML = "";
+        }
+        function quizStart(country, index) {
+            divOfQuestions.setAttribute("id", "answerDiv");
+            nextDiv.classList.add("nextDiv");
+            capital.classList.add("answer");
+            secondOption.classList.add("answer");
+            thirdOption.classList.add("answer");
+            fourthOption.classList.add("answer");
+            question.classList.add("question");
+            question.innerHTML = `
+            <h4> Which city is the capital of: <br> <span>${country}</span></h4>
         `;
-        capital.innerHTML = `
-        <h1><span>${quizQuestion[0].cities[0]}</span><h1>
+            capital.innerHTML = `
+            <span class="span" id="capital">${quizQuestion[index].cities[0]}</span>
         `;
-        secondOption.innerHTML = `
-        <h1><span>${quizQuestion[0].cities[1]}</span><h1>
+            secondOption.innerHTML = `
+            <span class="span">${quizQuestion[index].cities[1]}</span>
         `;
-        thirdOption.innerHTML = `
-        <h1><span>${quizQuestion[0].cities[2]}</span><h1>
+            thirdOption.innerHTML = `
+            <span class="span">${quizQuestion[index].cities[2]}</span>
         `;
-        fourthOption.innerHTML = `
-        <h1><span>${quizQuestion[0].cities[3]}</span><h1>
+            fourthOption.innerHTML = `
+            <span class="span">${quizQuestion[index].cities[3]}</span>
         `;
-        document.body.append(question);
-        document.body.append(divOfQuestions);
-        divOfQuestions.append(capital);
-        divOfQuestions.append(secondOption);
-        divOfQuestions.append(thirdOption);
-        divOfQuestions.append(fourthOption);
+            next.innerHTML = `
+            <span class="next">Next</span>
+        `;
+            document.body.append(question);
+            document.body.append(divOfQuestions);
+            divOfQuestions.append(capital);
+            divOfQuestions.append(secondOption);
+            divOfQuestions.append(thirdOption);
+            divOfQuestions.append(fourthOption);
+            document.body.append(nextDiv);
+            nextDiv.append(next);
+
+            function changeDiv() {
+                const btns = document.querySelectorAll(".span");
+                let answer = 0;
+
+                btns.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        if (answer == 0 && btn.hasAttribute("id")) {
+                            result++;
+                            btn.classList.add("correct");
+                        } else if (answer == 0) {
+                            btn.classList.add("incorrect");
+                        }
+                        answer += 1;
+                    });
+                });
+            }
+            changeDiv();
+            nextQuestion();
+            // Task: make result and finish page for quiz, add webpack
+        }
+        function nextQuestion() {
+            document.body.querySelector(".next").addEventListener("click", () => {
+                deletePage();
+                quizNumber += 1;
+                quizStart(countries[quizNumber], quizNumber);
+            });
+        }
     }
-
+    changePage();
     /**
      * ^
      * | change body

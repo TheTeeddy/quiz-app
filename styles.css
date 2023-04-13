@@ -20,14 +20,13 @@ body {
     justify-items: center;
     text-align: center;
     margin: auto;
-    padding: 0;
 }
 .startbtn {
-    height: auto;
     background-color: #8fbc8f;
     border-radius: 8%;
     margin: 0;
 }
+.next,
 .start:hover {
     width: 5%;
 }
@@ -49,21 +48,40 @@ body {
 .answer {
     display: inline-block;
     width: 50%;
-    color: wheat;
     text-align: center;
     position: relative;
-}
-.answer h1 {
-    margin: 15px;
+    margin: 25px 0;
     padding: 0;
 }
-h1 span {
+
+.span,
+.next {
     cursor: pointer;
     border: 2px solid wheat;
     padding: 5px;
     border-radius: 5px;
+    font-size: 1.72rem;
+    color: wheat;
 }
-h1 span:hover {
+.span:hover,
+.next:hover {
     background-color: wheat;
     color: #252525;
 }
+.correct,
+.correct:hover {
+    background-color: green;
+    color: wheat;
+}
+.incorrect,
+.incorrect:hover {
+    background-color: #ba0000;
+    color: wheat;
+}
+.nextDiv {
+    text-align: center;
+    margin-top: 10px;
+}
+/* .next {
+    display: none;
+} */
